@@ -1,10 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
 
-// 1. ไปที่ Supabase > Settings (รูปเฟือง) > API
-// 2. ก๊อปปี้ Project URL มาใส่ในเครื่องหมายคำพูดอันแรก
-const supabaseUrl = 'https://jymnwdfflnlatxkbnvhr.supabase.co' 
-
-// 3. ก๊อปปี้ Project API Key (anon public) มาใส่ในเครื่องหมายคำพูดอันที่สอง
-const supabaseKey = 'sb_publishable_UuA9SDSywONPodeTDHqfsw_TIxzcgGE' 
+// เปลี่ยนให้มันรอรับค่าจากตัวแปรระบบแทน (ทั้งบนเครื่องเรา และบน Vercel)
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+const supabaseKey = import.meta.env.VITE_SUPABASE_KEY
 
 export const supabase = createClient(supabaseUrl, supabaseKey)
